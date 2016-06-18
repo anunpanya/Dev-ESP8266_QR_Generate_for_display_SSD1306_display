@@ -12,11 +12,10 @@ int screenwidth = 128;
 int screenheight = 64;
 
 void qrsetup(){
+	Serial.println("QRcode setup...");
 	display.init();
     display.flipScreenVertically();
-	Serial.println("inti...");
 	display.setColor(WHITE);
-	Serial.println("inti...");
 }
 
 void qrrender(int x, int y, int color){
@@ -45,6 +44,8 @@ void qrcreate(String message) {
   message.toCharArray((char *)strinbuf,260);
   qrencode();
   qrscreenwhite();
+  
+  Serial.println("QRcode render...");
   // print QR Code
   for (byte x = 0; x < WD; x+=2) {
     for (byte y = 0; y < WD; y++) {
